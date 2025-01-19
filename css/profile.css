@@ -1,0 +1,67 @@
+body {
+    background-color: #ECF0F1;
+    font-family: 'Arial', sans-serif;
+}
+
+.profile-card {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 80px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #2C3E50;
+}
+
+.btn-custom {
+    background-color: #2C3E50;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #E67E22;
+}
+
+.profile-details {
+    margin-top: 20px;
+    color: #2C3E50;
+}
+
+.profile-details p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+#editForm .form-control {
+    border-radius: 5px;
+}
+
+#editForm label {
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#editForm {
+    animation: fadeIn 0.5s ease-in-out;
+}

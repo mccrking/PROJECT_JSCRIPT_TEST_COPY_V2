@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #010b0c, #330d3d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 15px;
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -8px -8px 20px rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            transform: rotateY(-10deg) rotateX(10deg) scale(0.9);
+            opacity: 0;
+            animation: appear 0.7s ease-out forwards;
+        }
+
+        @keyframes appear {
+            to {
+                transform: rotateY(0deg) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #6a11cb;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #6a11cb;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #f0f0f0;
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(145deg, #180230, #6a11cb);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .signup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3), -6px -6px 15px rgba(255, 255, 255, 0.9);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Page d'inscription</title>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="card">
+            <h2 class="title">Créer un compte</h2>
+            <form id="registerForm">
+                <div class="input-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="Mot de passe" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmer le mot de passe</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                </div>
+                <div class="input-group">
+                    <label for="role">Rôle</label>
+                    <select id="role" required>
+                        <option value="" disabled selected>Choisissez un rôle</option>
+                        <option value="etudiant">Étudiant</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <p class="error-message" id="error-message"></p>
+                <p class="success-message" id="success-message"></p>
+                <button type="submit" class="signup-button">Créer un compte</button>
+                <p class="login-link">Déjà un compte ? <a href="login.html">Se connecter</a></p>
+            </form>
+        </div>
+       
+    </div>
+    <script src="js/inscription.js"></script>
+</body>
+</html>

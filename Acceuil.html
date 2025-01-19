@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Plateforme</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/Acceuil.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <a href="profile.html"><img src="photo/emsi.jpeg" ></a>
+    <h2><a href="Acceuil.html" style="color: black; text-decoration: none;">PLFE_EMSI</a></h2>
+    <span id="hamburgerMenu" onclick="toggleNavbar()">☰</span> <!-- Hamburger Menu -->
+    <ul>
+      <li><a href="Acceuil.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Événements</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
+      <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section id="accueil">
+      <h1>Bienvenue sur notre plateforme</h1>
+      <p>
+        Cette plateforme est dédiée à la gestion des événements pour les étudiants de l'EMSI.
+        Explorez nos fonctionnalités et découvrez comment participer aux événements.
+      </p>
+    </section>
+
+    <section id="events">
+      <h1>Événements</h1>
+      <p>Voici les événements disponibles.</p>
+      
+      <!-- Event 1 -->
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event1.jpeg" class="img-fluid" alt="Event 1">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Journée de l'Innovation</h5>
+              <p class="card-text">Un événement mettant en lumière les projets innovants des étudiants.</p>
+              <a href="eventdescription.html" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event2.jpeg" class="img-fluid" alt="Event 2">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Hackathon EMSI</h5>
+              <p class="card-text">Un marathon de programmation pour les passionnés de technologie.</p>
+              <a href="eventdescription.html" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event5.jpeg" class="img-fluid" alt="Event 3">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Conférence sur l'IA</h5>
+              <p class="card-text">Découvrez les dernières tendances en intelligence artificielle.</p>
+              <a href="eventdescription.html" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Event4-->
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="photo/event7.jpeg" class="img-fluid" alt="Event 4">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Atelier de Développement Web</h5>
+            <p class="card-text">Un atelier pour apprendre les bases du développement web.</p>
+            <a href="eventdescription.html" class="btn btn-primary">Plus d'info</a>
+          </div>
+        </div>
+      </div>
+
+
+    
+    </main>
+    <footer>
+        <p>© 2025 EMSI. Tous droits réservés. <a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+        <p>Designed by <a href="https://www.instagram.com/mehdi_im_here" target="_blank">Mehdi Chmiti</a></p>
+      </footer>
+  <script>
+    function toggleNavbar() {
+      const sidebar = document.querySelector('nav.sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
