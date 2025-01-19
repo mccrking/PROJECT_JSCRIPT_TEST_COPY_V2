@@ -39,16 +39,18 @@ async function loadDashboard() {
 
 function createEventsByMonthChart(eventsByMonth) {
     const ctx = document.getElementById('eventsByMonthChart').getContext('2d');
+    const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: Object.keys(eventsByMonth).map(month => `Mois ${+month + 1}`),
+            labels: Object.keys(eventsByMonth).map(month => monthNames[month]),
             datasets: [{
                 label: 'Événements par Mois',
                 data: Object.values(eventsByMonth),
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                borderWidth: 2
             }]
         },
         options: {
@@ -59,7 +61,6 @@ function createEventsByMonthChart(eventsByMonth) {
         }
     });
 }
-
 function createParticipantsByEventChart(participantsByEvent) {
     const ctx = document.getElementById('participantsByEventChart').getContext('2d');
     new Chart(ctx, {

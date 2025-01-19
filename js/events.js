@@ -157,7 +157,25 @@ async function saveEvent() {
     }
 }
 
+//pour input de recherche
+function filterEvents() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toUpperCase();
+    const table = document.getElementById("eventsTable");
+    const rows = table.getElementsByTagName("tr");
 
+    for (let i = 0; i < rows.length; i++) {
+        const nameCell = rows[i].getElementsByTagName("td")[1];
+        if (nameCell) {
+            const eventName = nameCell.textContent || nameCell.innerText;
+            if (eventName.toUpperCase().indexOf(filter) > -1) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+}
 // Supprimer un événement via l'API
 async function deleteEvent(index) {
     const eventId = events[index].id;
@@ -240,20 +258,20 @@ function downloadPDF() {
 function downloadPDF2() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    doc.text("Liste des inscrits aux événements", 10, 10);
+    doc.text("Liste des inscrits aux événements", 30, 30);
 
     // Créer un tableau plat des inscrits à partir de tous les événements
     const registrations = events.reduce((acc, event) => {
         if (event.registrations) {
             event.registrations.forEach(reg => {
-                acc.push([reg.id, reg.username, reg.email, reg.role]);
+                acc.push([ reg.username, reg.email, reg.role, event.name]);
             });
         }
         return acc;
     }, []);
 
     doc.autoTable({
-        head: [["#", "Nom", "Email", "Role"]],
+        head: [[ "Nom", "Email", "Role", "Title Événement"]],
         body: registrations,
     });
 

@@ -147,13 +147,16 @@ app.put('/api/events/:id', (req, res) => {
 app.delete('/api/events/:id', (req, res) => {
     const events = loadData(path.join(__dirname, 'events.json'));
     const filteredEvents = events.filter(e => e.id !== parseInt(req.params.id));
-
+    const counterData = loadCounter();
+    updateCounter(counterData);
     if (events.length !== filteredEvents.length) {
         saveData(path.join(__dirname, 'events.json'), filteredEvents);
         res.sendStatus(204);
     } else {
         res.status(404).send({ error: 'Événement introuvable' });
     }
+    
+
 });
 
 // Registration routes

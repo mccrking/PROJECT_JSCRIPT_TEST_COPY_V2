@@ -7,8 +7,8 @@
     "maxParticipants": 30,
     "registrations": [
       {
-        "username": "ismail",
-        "email": "ismail@etudiant.com",
+        "username": "dexter",
+        "email": "dexter@etudiant.com",
         "role": "participant"
       }
     ],
@@ -20,7 +20,18 @@
     "date": "2025-02-02",
     "location": "emsi maarif",
     "maxParticipants": 30,
-    "registrations": [],
+    "registrations": [
+      {
+        "username": "pablo",
+        "email": "pablo@etudiants.com",
+        "role": "participant"
+      },
+      {
+        "username": "fahd",
+        "email": "fahd@etudiants.com",
+        "role": "participant"
+      }
+    ],
     "description": " Un marathon de programmation où les étudiants forment des équipes pour résoudre des défis technologiques en 48 heures\n     "
   },
   {
@@ -31,5 +42,32 @@
     "maxParticipants": 30,
     "registrations": [],
     "description": " L'Intelligence Artificielle a revolutionné le monde depuis les années 1950. Cette conférence vous propose de découvrir les avancées et les applications de cette technologie.\n          "
+  },
+  {
+    "id": 4,
+    "name": "Atelier de Développement Web",
+    "date": "2025-04-04",
+    "location": "EMSI CENTRE 1",
+    "maxParticipants": 30,
+    "registrations": [],
+    "description": "Un atelier pour apprendre les bases du développement web"
+  },
+  {
+    "id": 5,
+    "name": "Atelier de Développement Personnel",
+    "date": "2025-05-05",
+    "location": "EMSI CENTRE 2",
+    "maxParticipants": 30,
+    "registrations": [],
+    "description": "Un groupe de développeurs pour collaborer sur des projets"
+  },
+  {
+    "id": 6,
+    "name": "Séminaire sur l'Entrepreneuriat",
+    "date": "2025-06-06",
+    "location": "EMSI MOULAY YOUSSEF",
+    "maxParticipants": 30,
+    "registrations": [],
+    "description": "Un séminaire pour apprendre les bases de l'entrepreneuriat"
   }
 ]

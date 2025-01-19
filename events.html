@@ -34,6 +34,10 @@
     </nav>
     <main>
         <div class="container mt-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher un événement..." onkeyup="filterEvents()">
+                <button class="btn btn-outline-secondary" type="button" id="searchButton">Rechercher</button>
+            </div>
             <h1 class="text-center">Gestion des Événements</h1>
             <table class="table table-bordered table-hover mt-4">
                 <thead class="table-dark">
