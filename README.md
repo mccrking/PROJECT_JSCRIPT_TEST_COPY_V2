@@ -1,8 +1,8 @@
 
-# Application de Gestion des Événements pour les Étudiants
+# MINI projets de Gestion des Événements pour les Étudiants
 
 ## Description
-Cette application permet aux étudiants de consulter et de s'inscrire à des événements, et aux administrateurs de gérer ces événements. Elle inclut un tableau de bord avec des statistiques et des graphiques.
+Cette platforme  permet aux admin  de consulter et de ajouter les inscrits et de supprimer et de consulte les  événements,  Elle inclut un tableau de bord avec des statistiques et des graphiques.
 
 ## Fonctionnalités
 - **Connexion/Inscription** : Les utilisateurs peuvent se connecter ou s'inscrire.
@@ -24,6 +24,6 @@ Cette application permet aux étudiants de consulter et de s'inscrire à des év
 1. Clonez le dépôt :
    ```bash
    git clone https://github.com/votre-utilisateur/votre-projet.git
-   cd data 
-   npm start || node server.js
+ 2. deplacez vous sur le dossier data avec la commande: cd data 
+ 3. pour lancer le serveur avec la commande :  npm start || node server.js
   
