@@ -18,7 +18,7 @@ Cette platforme  permet aux admin  de consulter et de ajouter les inscrits et de
 - **Bibliothèques** : Bootstrap, Chart.js.
 
 ## APIs Utilisées
-- **(http://localhost:4000/api/events)** : Pour simuler des données d'utilisateurs et d'événements.
+- **(http://localhost:4000/api/events)** : Pour simuler des données des inscrits et d'événements.
 
 ## Comment Exécuter le Projet
 1. Clonez le dépôt :
