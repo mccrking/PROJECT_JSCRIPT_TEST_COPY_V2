@@ -29,7 +29,7 @@ function renderEventsTable() {
             <td>${event.description}</td>
             <td>${event.registrations?.length || 0} / ${event.maxParticipants}</td>
             <td>
-                <button class="btn btn-success btn-sm" onclick="viewRegistrations(${event.id})">Voir les inscrits</button>
+                <button class="btn btn-success btn-sm" onclick="viewRegistrations(${event.id}) " >Voir les inscrits</button>
                 <button class="btn btn-warning btn-sm" onclick="openModal(${index})">Modifier</button>
                 <button class="btn btn-danger btn-sm" onclick="deleteEvent(${index})">Supprimer</button>
             </td>
@@ -271,7 +271,7 @@ function downloadPDF2() {
     }, []);
 
     doc.autoTable({
-        head: [[ "Nom", "Email", "Role", "Title Événement"]],
+        head: [[ "Nom", "Email", "Role", "Event "]],
         body: registrations,
     });
 

@@ -10,6 +10,21 @@
         "username": "dexter",
         "email": "dexter@etudiant.com",
         "role": "participant"
+      },
+      {
+        "username": "ismail",
+        "email": "ismail@etudiant.com",
+        "role": "participant"
+      },
+      {
+        "username": "karim",
+        "email": "karim@gmail.com",
+        "role": "participant"
+      },
+      {
+        "username": "youssef",
+        "email": "youssef@gmail.com",
+        "role": "participant"
       }
     ],
     "description": " La Journée de l'Innovation est une opportunité unique pour les étudiants de présenter leurs projets novateurs. Des experts et des entreprises partenaires seront présents pour découvrir les idées brillantes des étudiants.\n    "
@@ -40,7 +55,18 @@
     "date": "2025-03-03",
     "location": "EMSI ROUDANI",
     "maxParticipants": 30,
-    "registrations": [],
+    "registrations": [
+      {
+        "username": "yassine",
+        "email": "yassine@gmail.com",
+        "role": "participant"
+      },
+      {
+        "username": "ilyass",
+        "email": "ilyass@gmail.com",
+        "role": "participant"
+      }
+    ],
     "description": " L'Intelligence Artificielle a revolutionné le monde depuis les années 1950. Cette conférence vous propose de découvrir les avancées et les applications de cette technologie.\n          "
   },
   {
@@ -49,7 +75,13 @@
     "date": "2025-04-04",
     "location": "EMSI CENTRE 1",
     "maxParticipants": 30,
-    "registrations": [],
+    "registrations": [
+      {
+        "username": "amine",
+        "email": "amine@gmail.com",
+        "role": "Participant"
+      }
+    ],
     "description": "Un atelier pour apprendre les bases du développement web"
   },
   {

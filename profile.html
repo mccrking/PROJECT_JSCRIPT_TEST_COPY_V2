@@ -6,149 +6,171 @@
     <title>Profil Utilisateur</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/profile.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
-        }
-        .profile-card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 30px;
-            max-width: 500px;
-        }
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #007bff;
-        }
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            margin: 5px;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
-        .profile-details h2 {
-            color: #343a40;
-            margin-bottom: 10px;
-        }
-        .profile-details p {
-            font-size: 14px;
-            color: #6c757d;
-        }
-        #editForm {
-            transition: all 0.3s ease;
-        }
-        @media (max-width: 768px) {
-            .profile-card {
-                padding: 15px;
-            }
-            .profile-image {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
 </head>
 <body>
-
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="profile-card text-center">
-        <div>
-            <img id="profileImage" src="photo/emsi.jpeg" alt="Photo de profil" class="profile-image mb-3">
-            <div>
-                <button id="uploadImageBtn" class="btn btn-secondary btn-sm" onclick="document.getElementById('profileImageInput').click()">
-                    <i class="fas fa-camera"></i> Changer la photo
+    <div class="profile-container">
+        <!-- En-tête du profil -->
+        <div class="profile-header">
+            <div class="profile-image-container">
+                <img id="profileImage" src="photo/emsi.jpeg" alt="Photo de profil" class="profile-image">
+                <button id="uploadImageBtn" class="btn-upload" onclick="document.getElementById('profileImageInput').click()">
+                    <i class="fas fa-camera"></i>
                 </button>
                 <input type="file" id="profileImageInput" accept="image/*" style="display:none;">
             </div>
-        </div>
-
-        <div class="profile-details mt-3">
-            <h2 id="username">Utilisateur</h2>
-            <p><strong>Ville:</strong> <span id="city"></span></p>
-            <p><strong>Adresse:</strong> <span id="address"></span></p>
-            <p><strong>Code Postal:</strong> <span id="postalCode"></span></p>
-            <p><strong>Téléphone:</strong> <span id="phone"></span></p>
-            <p><strong>Email:</strong> <span id="email"></span></p>
-            <p><strong>Rôle:</strong> <span id="role"></span></p>
-        </div>
-
-        <div id="editForm" class="mt-4" style="display: none;">
-            <div class="mb-3">
-                <label for="newName" class="form-label">Nom</label>
-                <input type="text" id="newName" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="newCity" class="form-label">Ville</label>
-                <input type="text" id="newCity" class="form-control">
+            <h1 id="username">John Doe</h1>
+            <p id="userRole">Organisateur d'événements</p>
+            <div class="profile-actions">
+                <button class="btn btn-primary" onclick="toggleEditForm()">
+                    <i class="fas fa-edit"></i> Modifier le Profil
+                </button>
+                <button class="btn btn-outline-secondary" onclick="Acceuil()">
+                    <i class="fas fa-home "></i>Acceuil
+                </button>
             </div>
         </div>
 
-        <div class="text-center mt-3">
-            <button id="editProfileBtn" class="btn btn-primary btn-custom">
-                <i class="fas fa-edit"></i> Modifier le Profil
-            </button>
-            <button id="saveProfileBtn" class="btn btn-success btn-custom" style="display:none;">
-                <i class="fas fa-save"></i> Enregistrer
-            </button>
-            <button id="AcceuilleBtn" class="btn btn-outline-primary btn-custom" onclick="returnAcceuil()">
-                <i class="fas fa-home"></i> Accueil
-            </button>
+        <!-- Section Informations -->
+        <div class="profile-section">
+            <h2>Informations Personnelles</h2>
+            <div class="profile-details">
+                <p><strong>CNE:</strong> <span id="cne">BK711350</span></p>
+                <p><strong>Ville:</strong> <span id="city">Casablanca</span></p>
+                <p><strong>Adresse:</strong> <span id="address">sidi bernoussi bd tend</span></p>
+                <p><strong>Code Postal:</strong> <span id="postalCode">277257</span></p>
+                <p><strong>Téléphone:</strong> <span id="phone">0659805018</span></p>
+                <p><strong>Email:</strong> <span id="email">mehdi@admin.com</span></p>
+                <p><strong>Rôle:</strong> <span id="role">admin</span></p>
+            </div>
+        </div>
+
+        <!-- Section Statistiques -->
+        <div class="profile-section">
+            <h2>Statistiques</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>12</h3>
+                    <p>Événements créés</p>
+                </div>
+                <div class="stat-item">
+                    <h3>45</h3>
+                    <p>Participations</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Badges</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Historique des Événements -->
+        <div class="profile-section">
+            <h2>Historique des Événements</h2>
+            <div class="event-history">
+                <div class="event-item">
+                    <img src="photo/event1.jpeg" alt="Événement 1">
+                    <div class="event-details">
+                        <h4>Journée de l'Innovation</h4>
+                        <p>15 Janvier 2024</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <img src="photo/event3.jpeg" alt="Événement 2">
+                    <div class="event-details">
+                        <h4>Hackathon EMSI</h4>
+                        <p>20 Février 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Réseaux Sociaux -->
+        <div class="profile-section">
+            <h2>Réseaux Sociaux</h2>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Formulaire de modification -->
+        <div id="editForm" class="edit-form">
+            <h2>Modifier le Profil</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="newName">Nom</label>
+                    <input type="text" id="newName" class="form-control" placeholder="Entrez votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="newCity">Ville</label>
+                    <input type="text" id="newCity" class="form-control" placeholder="Entrez votre ville">
+                </div>
+                <div class="form-group">
+                    <label for="newAddress">Adresse</label>
+                    <input type="text" id="newAddress" class="form-control" placeholder="Entrez votre adresse">
+                </div>
+                <button type="button" class="btn btn-success" onclick="saveProfile()">
+                    <i class="fas fa-save"></i> Enregistrer
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="toggleEditForm()">
+                    <i class="fas fa-times"></i> Annuler
+                </button>
+            </form>
         </div>
     </div>
-</div>
 
-<script>
-    // Charger les données du profil depuis profile.json
-    fetch('/data/profile.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('username').innerText = `${data.nom} ${data.prenom}`;
-            document.getElementById('city').innerText = data.ville;
-            document.getElementById('address').innerText = data.adresse;
-            document.getElementById('postalCode').innerText = data.codePostal;
-            document.getElementById('phone').innerText = data.telephone;
-            document.getElementById('email').innerText = data.email;
-            document.getElementById('role').innerText = data.role;
-            if (data.photo) {
-                document.getElementById('profileImage').src = data.photo;
-            }
-        })
-        .catch(error => console.error('Erreur lors du chargement du profil:', error));
+    <script>
+        // Charger les données du profil depuis profile.json
+        fetch('/data/profile.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('username').innerText = `${data.nom} ${data.prenom}`;
+                document.getElementById('cne').innerText = data.CNE;
+                document.getElementById('city').innerText = data.ville;
+                document.getElementById('address').innerText = data.adresse;
+                document.getElementById('postalCode').innerText = data.codePostal;
+                document.getElementById('phone').innerText = data.telephone;
+                document.getElementById('email').innerText = data.email;
+                document.getElementById('role').innerText = data.role;
+                if (data.photo) {
+                    document.getElementById('profileImage').src = data.photo;
+                }
+            })
+            .catch(error => console.error('Erreur lors du chargement du profil:', error));
 
-    document.getElementById('editProfileBtn').addEventListener('click', () => {
-        document.getElementById('editForm').style.display = 'block';
-        document.getElementById('editProfileBtn').style.display = 'none';
-        document.getElementById('saveProfileBtn').style.display = 'inline-block';
-    });
+        // Fonction pour afficher/masquer le formulaire de modification
+        function toggleEditForm() {
+            const editForm = document.getElementById('editForm');
+            editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+        }
 
-    document.getElementById('saveProfileBtn').addEventListener('click', () => {
-        const newName = document.getElementById('newName').value;
-        const newCity = document.getElementById('newCity').value;
+        // Fonction pour enregistrer les modifications du profil
+        function saveProfile() {
+            const newName = document.getElementById('newName').value;
+            const newCity = document.getElementById('newCity').value;
+            const newAddress = document.getElementById('newAddress').value;
 
-        if (newName) document.getElementById('username').innerText = newName;
-        if (newCity) document.getElementById('city').innerText = newCity;
+            if (newName) document.getElementById('username').innerText = newName;
+            if (newCity) document.getElementById('city').innerText = newCity;
+            if (newAddress) document.getElementById('address').innerText = newAddress;
 
-        document.getElementById('editForm').style.display = 'none';
-        document.getElementById('editProfileBtn').style.display = 'inline-block';
-        document.getElementById('saveProfileBtn').style.display = 'none';
+            toggleEditForm();
+            alert('Profil mis à jour avec succès !');
+        }
 
-        alert('Profil mis à jour avec succès !');
-    });
-
-    function returnAcceuil() {
-        window.location.href = "Acceuil.html";
-    }
-</script>
-
+        // Fonction pour partager le profil
+        function shareProfile() {
+            alert('Lien de partage copié dans le presse-papiers !');
+            // Ici, vous pouvez ajouter la logique pour générer un lien de partage
+        }
+        function Acceuil(){
+            window.location.href = "Acceuil.html";
+        }
+    </script>
 </body>
 </html>

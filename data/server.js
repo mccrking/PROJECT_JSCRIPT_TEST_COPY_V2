@@ -159,34 +159,7 @@ app.delete('/api/events/:id', (req, res) => {
 
 });
 
-// Registration routes
-/*app.post('/api/events/:id/registrations', (req, res) => {
-    const eventId = parseInt(req.params.id);
-    const { name, email, role } = req.body;
 
-    if (!name || !email || !role) {
-        return res.status(400).send({ error: 'Tous les champs (name, email, role) sont requis.' });
-    }
-
-    const events = loadData(path.join(__dirname, 'events.json'));
-    const event = events.find(e => e.id === eventId);
-
-    if (!event) {
-        return res.status(404).send({ error: 'Événement introuvable' });
-    }
-
-    const counterData = loadCounter();
-    const newRegistration = { id: counterData.registrationId++, name, email, role };
-    
-    event.registrations.push(newRegistration);
-    saveData(path.join(__dirname, 'events.json'), events);
-    
-    // Update counter for next registration ID
-    updateCounter(counterData);
-    
-    res.status(201).json(newRegistration);
-});
-*/
 app.post('/api/events/:id/registrations', (req, res) => {
     const eventId = parseInt(req.params.id);
     const { name, email, role } = req.body;

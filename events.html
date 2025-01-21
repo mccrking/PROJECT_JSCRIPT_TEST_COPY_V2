@@ -1,54 +1,112 @@
 <!DOCTYPE html>
-<html lang="fr" > 
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Événements</title>
-    <!-- Lien vers Bootstrap uniquement via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- Liens CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-     <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Google Font -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
     <link rel="stylesheet" href="css/events.css">
 </head>
 <body>
-    <nav class="sidebar">
-        <a href="profile.html"><img src="photo/emsi.jpeg" ></a>
-        <h2><a href="Acceuil.html" style="color: white; text-decoration: none;">PLFE_EMSI</a></h2>
-        <ul>
-            <li><a href="Acceuil.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+    <!-- Sidebar -->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="photo/emsi.jpeg" alt="EMSI Logo">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">PLFE_EMSI</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="Acceuil.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text" >Accueil</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="dashboard.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="events.html" class="active">
+                            <i class='bx bx-calendar icon'></i>
+                            <span class="text nav-text">Événements</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="profile.html">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Profil</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="login.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Déconnexion</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Langue</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" onclick="setLanguage('fr')">Français</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">English</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="setLanguage('ar')">العربية</a></li>
+                    </ul>
+                </li>
+                <li class="mode">
+                    <div class="sun-moon">
+                      <i class='bx bx-moon icon moon'></i>
+                      <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
             
-            <li><a href="events.html" class="active"><i class="fas fa-calendar-alt" ></i> Événements</a></li>
-            <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
-            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
-            
-          </ul>
-        </ul>
+                    <div class="toggle-switch">
+                      <span class="switch"></span>
+                    </div>
+                  </li>
+            </div>
+        </div>
     </nav>
+
+    <!-- Main Content -->
     <main>
         <div class="container mt-5">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="searchInput" placeholder="Rechercher un événement..." onkeyup="filterEvents()">
                 <button class="btn btn-outline-secondary" type="button" id="searchButton">Rechercher</button>
             </div>
-            <h1 class="text-center">Gestion des Événements</h1>
+            <h1 class="text-center" id="pageTitle">Gestion des Événements</h1>
             <table class="table table-bordered table-hover mt-4">
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>Nom</th>
-                        <th>Date</th>
-                        <th>Lieu</th>
-                        <th>Description</th>
-                        <th>Participants</th>
-                        <th>Actions</th>
+                        <th id="thName">Nom</th>
+                        <th id="thDate">Date</th>
+                        <th id="thLocation">Lieu</th>
+                        <th id="thDescription">Description</th>
+                        <th id="thParticipants">Participants</th>
+                        <th id="thActions">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="eventsTable">
@@ -57,83 +115,163 @@
             </table>
             <button class="btn btn-primary mt-3" onclick="openModal()">Ajouter un Événement</button>
             <button class="btn btn-success mt-3" onclick="downloadPDF()">Télécharger PDF</button>
-            <button class="btn btn-warning mt-3" onclick="window.print()">Imprimer</button>
+            <button id="printButton" class="btn btn-warning mt-3" onclick="window.print()">Imprimer</button>
         </div>
 
         <!-- Formulaire Modal -->
-        <!-- Formulaire Modal -->
-<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eventModalLabel">Ajouter / Modifier un Événement</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="eventForm">
-                    <div class="mb-3">
-                        <label for="eventTitle" class="form-label">Titre</label>
-                        <input type="text" class="form-control" id="eventTitle" required>
+        <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventModalLabel">Ajouter / Modifier un Événement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="eventDate" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="eventDate" required>
+                    <div class="modal-body">
+                        <form id="eventForm">
+                            <div class="mb-3">
+                                <label for="eventTitle" class="form-label">Titre</label>
+                                <input type="text" class="form-control" id="eventTitle" required>
+                                <div class="invalid-feedback">Veuillez entrer un titre.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eventDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="eventDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eventLocation" class="form-label">Lieu</label>
+                                <input type="text" class="form-control" id="eventLocation" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eventDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="eventDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eventMaxParticipants" class="form-label">Max Participants</label>
+                                <input type="number" class="form-control" id="eventMaxParticipants" min="0" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Participants</label>
+                                <div id="participantsContainer">
+                                    <!-- Les détails des participants seront ajoutés ici -->
+                                </div>
+                                <button type="button" class="btn btn-secondary mt-2" onclick="addParticipant()">Ajouter un Participant</button>
+                            </div>
+                            <input type="hidden" id="eventId">
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="eventLocation" class="form-label">Lieu</label>
-                        <input type="text" class="form-control" id="eventLocation" required>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary" onclick="saveEvent()">Enregistrer</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="eventDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="eventDescription" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="eventMaxParticipants" class="form-label">Max Participants</label>
-                        <input type="number" class="form-control" id="eventMaxParticipants" min="0" required>
-                    </div>
-                    
-                    <!-- Détails des participants -->
-                    <div class="mb-3">
-                        <label class="form-label">Participants</label>
-                        <div id="participantsContainer">
-                            <!-- Les détails des participants seront ajoutés ici -->
-                        </div>
-                        <button type="button" class="btn btn-secondary mt-2" onclick="addParticipant()">Ajouter un Participant</button>
-                    </div>
-                    
-                    <input type="hidden" id="eventId">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-primary" onclick="saveEvent()">Enregistrer</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
         <!-- Modal pour afficher les inscriptions -->
-<div class="modal fade" id="registrationsModal" tabindex="-1" aria-labelledby="registrationsModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="registrationsModalLabel">Inscriptions</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="registrationsModalBody">
-                <!-- Les données des inscriptions seront insérées ici via JS -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" onclick="downloadPDF2()">Télécharger PDF</button>
+        <div class="modal fade" id="registrationsModal" tabindex="-1" aria-labelledby="registrationsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registrationsModalLabel">Inscriptions</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="registrationsModalBody">
+                        <!-- Les données des inscriptions seront insérées ici via JS -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary" onclick="downloadPDF2()">Télécharger PDF</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
     </main>
-    <!-- Bootstrap JS et script personnalisé -->
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/events.js"></script>       
+    <script src="js/events.js"></script>
+    <script>
+        
+        let translations = {};
+
+        // Charger les traductions
+        async function loadTranslations() {
+            const response = await fetch('data/translations.json');
+            translations = await response.json();
+        }
+
+        // Changer la langue
+        function setLanguage(lang) {
+            const translation = translations[lang];
+            if (!translation) return;
+
+            // Mettre à jour le contenu de la page
+            document.getElementById('pageTitle').textContent = translation.title;
+            document.getElementById('searchInput').placeholder = translation.searchPlaceholder;
+            document.getElementById('searchButton').textContent = translation.searchButton;
+            document.getElementById('thName').textContent = translation.tableHeaders[1];
+            document.getElementById('thDate').textContent = translation.tableHeaders[2];
+            document.getElementById('thLocation').textContent = translation.tableHeaders[3];
+            document.getElementById('thDescription').textContent = translation.tableHeaders[4];
+            document.getElementById('thParticipants').textContent = translation.tableHeaders[5];
+            document.getElementById('thActions').textContent = translation.tableHeaders[6];
+            document.getElementById('addEventButton').textContent = translation.addEvent;
+            document.getElementById('downloadPDFButton').textContent = translation.downloadPDF;
+            document.getElementById('printButton').textContent = translation.printButton;
+            document.getElementById('eventModalLabel').textContent = translation.modalTitle;
+            document.getElementById('modalLabelTitle').textContent = translation.modalLabels[0];
+            document.getElementById('modalLabelDate').textContent = translation.modalLabels[1];
+            document.getElementById('modalLabelLocation').textContent = translation.modalLabels[2];
+            document.getElementById('modalLabelDescription').textContent = translation.modalLabels[3];
+            document.getElementById('modalLabelMaxParticipants').textContent = translation.modalLabels[4];
+            document.getElementById('modalButtonCancel').textContent = translation.modalButtons[0];
+            document.getElementById('modalButtonSave').textContent = translation.modalButtons[1];
+        }
+
+        // Charger les traductions au démarrage
+        loadTranslations().then(() => setLanguage('fr')); // Par défaut en français
+
+        // Fonction pour basculer entre le mode sombre et le mode clair
+        function toggleNavbar() {
+      const sidebar = document.querySelector('nav.sidebar');
+      sidebar.classList.toggle('open');
+    }
+    
+    const body = document.querySelector("body"),
+      sidebar = body.querySelector("nav"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    });
+
+        // Fonction pour basculer entre le mode sombre et le mode clair
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark');
+
+            // Sauvegarder le mode dans le localStorage
+            const isDarkMode = body.classList.contains('dark');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Charger le mode sombre au démarrage
+        function loadDarkMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark');
+            }
+        }
+
+        // Ajouter un écouteur d'événement pour le bouton de mode sombre
+        document.querySelector('.toggle-switch').addEventListener('click', toggleDarkMode);
+
+        // Charger le mode sombre au démarrage
+        loadDarkMode();
+    </script>
 </body>
 </html>

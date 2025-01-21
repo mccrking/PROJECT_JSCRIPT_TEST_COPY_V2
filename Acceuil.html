@@ -1,48 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil - Plateforme</title>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/Acceuil.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Plateforme</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Boxicons -->
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Acceuil.css">
+    
+  </head>
 <body>
   <!-- Sidebar -->
-  <nav class="sidebar">
-    <a href="profile.html"><img src="photo/emsi.jpeg" ></a>
-    <h2><a href="Acceuil.html" style="color: black; text-decoration: none;">PLFE_EMSI</a></h2>
-    <span id="hamburgerMenu" onclick="toggleNavbar()">☰</span> <!-- Hamburger Menu -->
-    <ul>
-      <li><a href="Acceuil.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
-      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-      <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Événements</a></li>
-      <li><a href="profile.html"><i class="fas fa-user"></i> Profil</a></li>
-      <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
-    </ul>
+   
+  <nav class="sidebar close">
+    <header>
+      <div class="image-text">
+        <span class="image">
+          <img src="photo/emsi.jpeg" alt="EMSI Logo">
+        </span>
+  
+        <div class="text logo-text">
+          <span class="name">PLFE_EMSI</span>
+          
+        </div>
+      </div>
+  
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+  
+    <div class="menu-bar">
+      <div class="menu">
+        
+  
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a href="Acceuil.html" class="active">
+              <i class='bx bx-home-alt icon'></i>
+              <span class="text nav-text">Accueil</span>
+            </a>
+          </li>
+  
+          <li class="nav-link">
+            <a href="dashboard.html">
+              <i class='bx bx-bar-chart-alt-2 icon'></i>
+              <span class="text nav-text">Dashboard</span>
+            </a>
+          </li>
+  
+          <li class="nav-link">
+            <a href="events.html" >
+                <i class='bx bx-calendar icon'></i>
+                <span class="text nav-text">Événements</span>
+            </a>
+        </li>
+  
+          <li class="nav-link">
+            <a href="profile.html">
+              <i class='bx bx-user icon'></i>
+              <span class="text nav-text">Profil</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="bottom-content">
+        <li class="">
+          <a href="login.html">
+            <i class='bx bx-log-out icon'></i>
+            <span class="text nav-text">Déconnexion</span>
+          </a>
+        </li>
+  
+        <li class="mode">
+          <div class="sun-moon">
+            <i class='bx bx-moon icon moon'></i>
+            <i class='bx bx-sun icon sun'></i>
+          </div>
+          <span class="mode-text text">Dark mode</span>
+  
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+      </div>
+    </div>
   </nav>
 
   <!-- Main Content -->
-  <main>
-    <section id="accueil">
-      <h1>Bienvenue sur notre plateforme</h1>
-      <p>
-        Cette plateforme est dédiée à la gestion des événements pour les étudiants de l'EMSI.
-        Explorez nos fonctionnalités et découvrez comment participer aux événements.
-      </p>
-    </section>
-
-    <section id="events">
-      <h1>Événements</h1>
-      <p>Voici les événements disponibles.</p>
-      
+   <main>
+  <section id="events">
+    <h1>Événements</h1>
+    <p>Voici les événements disponibles.</p>
+  
+    <div class="event-container">
       <!-- Event 1 -->
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="photo/event1.jpeg" class="img-fluid" alt="Event 1">
@@ -56,9 +114,9 @@
           </div>
         </div>
       </div>
-
+  
       <!-- Event 2 -->
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="photo/event2.jpeg" class="img-fluid" alt="Event 2">
@@ -72,9 +130,9 @@
           </div>
         </div>
       </div>
-
+  
       <!-- Event 3 -->
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="photo/event5.jpeg" class="img-fluid" alt="Event 3">
@@ -88,54 +146,57 @@
           </div>
         </div>
       </div>
-    </section>
-    <!--Event4-->
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="photo/event7.jpeg" class="img-fluid" alt="Event 4">
+  
+      <!-- Event 4 -->
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event7.jpeg" class="img-fluid" alt="Event 4">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Atelier de Développement Web</h5>
+              <p class="card-text">Un atelier pour apprendre les bases du développement web.</p>
+              <a href="eventdescription.html#event7" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Atelier de Développement Web</h5>
-            <p class="card-text">Un atelier pour apprendre les bases du développement web.</p>
-            <a href="eventdescription.html#event7" class="btn btn-primary">Plus d'info</a>
+      </div>
+  
+      <!-- Event 5 -->
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event6.jpeg" class="img-fluid" alt="Event 5">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Atelier de Développement Personnel</h5>
+              <p class="card-text">Un groupe de développeurs pour collaborer sur des projets.</p>
+              <a href="eventdescription.html#event6" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Event 6 -->
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="photo/event8.jpeg" class="img-fluid" alt="Event 6">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Séminaire sur l'Entrepreneuriat</h5>
+              <p class="card-text">Un séminaire pour apprendre les bases de l'entrepreneuriat.</p>
+              <a href="eventdescription.html#event8" class="btn btn-primary">Plus d'info</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!--Event5-->
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="photo/event6.jpeg" class="img-fluid" alt="Event 5">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Atelier de Développement Personnel</h5>
-            <p class="card-text">Un groupe de développeurs pour collaborer sur des projets.</p>
-            <a href="eventdescription.html#event6" class="btn btn-primary">Plus d'info</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Event6-->
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="photo/event8.jpeg" class="img-fluid" alt="Event 6">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Séminaire sur l'Entrepreneuriat</h5>
-            <p class="card-text">Un séminaire pour apprendre les bases de l'entrepreneuriat.</p>
-            <a href="eventdescription.html#event8" class="btn btn-primary">Plus d'info</a>
-          </div>
-        </div>
-      </div>
-
-    
-    </main>
+  </section>
+   </main>
     <footer>
         <p>© 2025 EMSI. Tous droits réservés. <a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
         <p>Designed by <a href="https://www.instagram.com/mehdi_im_here" target="_blank">Mehdi Chmiti</a></p>
@@ -145,6 +206,41 @@
       const sidebar = document.querySelector('nav.sidebar');
       sidebar.classList.toggle('open');
     }
+    
+    const body = document.querySelector("body"),
+      sidebar = body.querySelector("nav"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    });
+
+        // Fonction pour basculer entre le mode sombre et le mode clair
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark');
+
+            // Sauvegarder le mode dans le localStorage
+            const isDarkMode = body.classList.contains('dark');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Charger le mode sombre au démarrage
+        function loadDarkMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark');
+            }
+        }
+
+        // Ajouter un écouteur d'événement pour le bouton de mode sombre
+        document.querySelector('.toggle-switch').addEventListener('click', toggleDarkMode);
+
+        // Charger le mode sombre au démarrage
+        loadDarkMode();
   </script>
 </body>
 </html>
